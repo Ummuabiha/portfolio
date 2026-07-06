@@ -1,0 +1,159 @@
+<!-- ═════════════════════════════════════════════════════════════════════════
+  FATIMA PORTFOLIO — GALLERY PAGE (gallery.html)
+  ─────────────────────────────────────────────────────────────────────────
+  This page shows Certificate / achievement cards (3-column grid)
+  ═════════════════════════════════════════════════════════════════════════ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fatima — Gallery</title>
+  <meta name="description" content="Gallery of certificates, projects, and reading log of Fatima.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="noise-overlay"></div>
+  <div class="page-wrap">
+
+    <!-- ═══════════ NAVBAR ═══════════ -->
+    <nav class="navbar">
+      <div class="navbar-content">
+        <a href="index.html" class="logo">
+          <span class="logo-text">Fatima Ibrahim Abdullahi</span>
+          <span class="logo-dot"></span>
+        </a>
+        <input type="checkbox" id="menuToggle" class="menu-toggle">
+        <label for="menuToggle" class="hamburger" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </label>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="skills.html" class="nav-link">Skills</a></li>
+          <li><a href="education.html" class="nav-link">Education</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="gallery.html" class="nav-link active">Certifications</a></li>
+          <li><a href="resume.html" class="nav-link">Resume</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <label for="menuToggle" class="nav-overlay"></label>
+      </div>
+    </nav>
+
+    <!-- ═══════════ PAGE HERO ═══════════ -->
+    <section class="page-hero">
+      <div class="page-hero-bg">
+        <div class="hero-orb orb-1" style="width:400px;height:400px;top:-30%;right:-10%"></div>
+        <div class="hero-orb orb-2" style="width:300px;height:300px;bottom:-20%;left:-5%"></div>
+      </div>
+      <div class="page-hero-content">
+        <span class="section-label">Visual Archive</span>
+        <h1>Gallery /Certificates</h1>
+        <p>Certificates, project previews, and my personal reading library.</p>
+        <p>This page highlights important moments from my learning journey.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════ CERTIFICATE CARDS ═══════════
+         Each .gallery-card = one certificate or achievement. -->
+    <section class="gallery-page">
+      <div class="gallery-container">
+
+        <div class="section-header">
+          <span class="section-label">Highlights</span>
+          <h2 style="color:var(--clr-dark-text)">Certificates &amp; Achievements</h2>
+        </div>
+
+        <div class="gallery-grid">
+
+          <div class="gallery-card entrance entrance-1">
+            <div class="gallery-thumb" style="background:linear-gradient(135deg,#1a3a5c,#0F1419)"><img src="img/WB.png" alt=""></div>
+            <div class="gallery-body">
+              <h3>Responsive Web Design</h3>
+              <p>freeCodeCamp — Certified in HTML5, CSS3, Flexbox, Grid, computer basics and responsive design principles.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card entrance entrance-2">
+            <div class="gallery-thumb" style="background:linear-gradient(135deg,#2d1b4e,#0a1628)"><img src="img/THM.png" alt=""></div>
+            <div class="gallery-body">
+              <h3>Advent of cyber lab</h3>
+              <p>Advent of Cyber an annual, month-long cybersecurity event hosted by TryHackMe where i learn a wide variety of real-world skills, 
+                including web application security, malware analysis, OSINT, network defense, Linux basics, and cloud security.
+              </p>
+            </div>
+          </div>
+
+          <div class="gallery-card entrance entrance-3">
+            <div class="gallery-thumb" style="background:linear-gradient(135deg,#1a3a2c,#0F1419)"><img src="img/CF.png" alt=""></div>
+            <div class="gallery-body">
+              <h3>Cybersecurity Fundamentals</h3>
+              <p>Cyber Security Track — Learn the foundational understanding of cybersecurity objectives, 
+                and practices which includes cyber threat groups, types of attacks, social engineering, 
+                cryptography, and how to detect, prevent and respond to cyber attacks.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card entrance entrance-4">
+            <div class="gallery-thumb" style="background:linear-gradient(135deg,#16213e,#1a1a2e)"><img src="img/PF.png" alt=""></div>
+            <div class="gallery-body">
+              <h3>Portfolio Project</h3>
+              <p>10-page multi-page portfolio built with HTML and CSS only. Responsive, accessible, and polished.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card entrance entrance-5">
+            <div class="gallery-thumb" style="background:linear-gradient(135deg,#3a2a1a,#14100a)"><img src="img/Alx.png" alt=""></div>
+            <div class="gallery-body">
+              <h3>ALX AI Career Essentials</h3>
+              <p>The ALX AI Career Essentials (AiCE) is an online program designed that teaches
+                me how to integrate AI tools which covers several skills, including Prompt Engineering, 
+                Content Creation & Personal Branding</p>
+            </div>
+          </div>
+
+          <div class="gallery-card entrance entrance-6">
+            <div class="gallery-thumb" style="background:linear-gradient(135deg,#2a1a3a,#100a14)"><img src="img/CY.jpg" alt="" srcset=""></div>
+            <div class="gallery-body">
+              <h3>Security Lab</h3>
+              <p>Hands-on lab work with Kali Linux, Wireshark, vulnerability assessments, and cryptography.</p>
+            </div>
+          </div>
+         </div>
+</div>
+      </div>
+    </section>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Fatima Ibrahim Abdullahi<span class="logo-dot"></span></a>
+          <p>Building knowledge today for a safer digital tomorrow.</p>
+        </div>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="skills.html">Skills</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-copy">
+          <p>&copy; 2024–2026 Fatima Ibrahim. Built with intentionality.</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

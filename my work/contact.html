@@ -1,0 +1,162 @@
+<!-- ═════════════════════════════════════════════════════════════════════════
+  FATIMA PORTFOLIO — CONTACT PAGE (contact.html)
+  ─────────────────────────────────────────────────────────────────────────
+  Two-column layout:
+  • Left: Contact information (email, LinkedIn, GitHub)
+  • Right: Contact form with floating label design
+  ═════════════════════════════════════════════════════════════════════════ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fatima — Contact</title>
+  <meta name="description" content="Get in touch with Fatima — software engineer and cybersecurity enthusiast.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="noise-overlay"></div>
+  <div class="page-wrap">
+
+    <!-- ═══════════ NAVBAR ═══════════ -->
+    <nav class="navbar">
+      <div class="navbar-content">
+        <a href="index.html" class="logo">
+          <span class="logo-text">Fatima Ibrahim Abdullahi</span>
+          <span class="logo-dot"></span>
+        </a>
+        <input type="checkbox" id="menuToggle" class="menu-toggle">
+        <label for="menuToggle" class="hamburger" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </label>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="skills.html" class="nav-link">Skills</a></li>
+          <li><a href="education.html" class="nav-link">Education</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="gallery.html" class="nav-link">Certifications</a></li>
+          <li><a href="resume.html" class="nav-link">Resume</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+        <label for="menuToggle" class="nav-overlay"></label>
+      </div>
+    </nav>
+
+    <!-- ═══════════ PAGE HERO ═══════════ -->
+    <section class="page-hero">
+      <div class="page-hero-bg">
+        <div class="hero-orb orb-1" style="width:400px;height:400px;top:-30%;right:-10%"></div>
+        <div class="hero-orb orb-2" style="width:300px;height:300px;bottom:-20%;left:-5%"></div>
+      </div>
+      <div class="page-hero-content">
+        <span class="section-label">Connect</span>
+        <h1>Get in Touch</h1>
+        <p>Let's build something secure together.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════ CONTACT CONTENT ═══════════
+         Left: contact info / Right: contact form. -->
+    <section class="contact-page">
+      <div class="contact-container">
+
+        <!-- ─── LEFT COLUMN: Contact Information ─── -->
+        <div class="contact-left entrance entrance-1">
+          <h2>Contact Information</h2>
+          <p class="contact-sub">Feel free to reach out — I'm always open to new opportunities and collaborations.</p>
+
+          <div class="contact-methods">
+
+            <!-- Email -->
+            <!-- The href below uses the email shown in the displayed text -->
+            <a href="mailto:ferdheemerh95@gmail.com" class="contact-method">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
+              <span>ferdheemerh95@gmail.com</span>
+            </a>
+
+            <a href="https://linkedin.com/in/YOUR-LINKEDIN-USERNAME" target="_blank" class="contact-method">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              <span>linkedin.com/in/fatima-ibrahim2028</span>
+            </a>
+
+            <a href="https://github.com/Ummuabiha" target="_blank" class="contact-method">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              <span>github.com/Ummuabiha</span>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- ─── RIGHT COLUMN: Contact Form ── -->
+        <div class="contact-right entrance entrance-2">
+          <h2>Send a Message</h2>
+          <p class="contact-sub">I'll get back to you as soon as possible.</p>
+
+          <form class="contact-form" action="#" method="post">
+
+            <!-- Name field -->
+            <div class="form-group">
+              <input type="text" id="formName" required autocomplete="name" placeholder=" ">
+              <label for="formName">Your Name</label>
+              <span class="form-focus"></span>
+            </div>
+
+            <!-- Email field -->
+            <div class="form-group">
+              <input type="email" id="formEmail" required autocomplete="email" placeholder=" ">
+              <label for="formEmail">Your Email</label>
+              <span class="form-focus"></span>
+            </div>
+
+            <!-- Message field -->
+            <div class="form-group">
+              <textarea id="formMessage" required rows="4" placeholder=" "></textarea>
+              <label for="formMessage">Your Message</label>
+              <span class="form-focus"></span>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-full">
+              Send Message
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Fatima Ibrahim Abdullahi<span class="logo-dot"></span></a>
+          <p>Building knowledge today for a safer digital tomorrow</p>
+        </div>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="skills.html">Skills</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-copy">
+          <p>&copy; 2024–2026 Fatima Ibrahim. Built with intentionality.</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

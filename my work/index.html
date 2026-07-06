@@ -1,0 +1,204 @@
+<!-- ═════════════════════════════════════════════════════════════════════════
+  FATIMA PORTFOLIO — HOME PAGE (index.html)
+  ─────────────────────────────────────────────────────────────────────────
+  This is the first page visitors see. It contains the main hero section
+  with the animated background, typing effect, and call-to-action buttons.
+
+  ═════════════════════════════════════════════════════════════════════════ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- ─── PAGE TITLE ─── -->
+  <title>Fatima Ibrahim — Software Engineering Student | Home</title>
+
+  <!--  META DESCRIPTION -->
+  <meta name="description" content="Portfolio of Fatima Ibrahim— a software engineering student transitioning into cybersecurity.">
+
+  <!-- ─── GOOGLE FONTS ─── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- ─── MAIN STYLESHEET ───
+       All the styling for the entire site lives in this one file. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="noise-overlay"></div>
+
+  <!-- ─── PAGE WRAPPER ───
+       Wraps all content so the whole page fades in on load. -->
+  <div class="page-wrap">
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         NAVBAR (sticky top navigation bar)
+         ───────────────────────────────────────────────────────────────
+         This navbar is IDENTICAL on all 10 pages
+       The hamburger menu uses a CSS-only checkbox hack 
+    ═══════════════════════════════════════════════════════════════════ -->
+    <nav class="navbar">
+      <div class="navbar-content">
+
+        <!-- Logo (links back to home) -->
+        <a href="index.html" class="logo">
+          <span class="logo-text">Fatima Ibrahim Abdullahi</span>
+          <span class="logo-dot"></span>
+        </a>
+
+        <!-- ─── HIDDEN CHECKBOX (CSS hamburger hack) ───-->
+        <input type="checkbox" id="menuToggle" class="menu-toggle">
+
+        <!-- Hamburger icon (hidden on desktop, visible on mobile) -->
+        <label for="menuToggle" class="hamburger" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <!-- ─── NAVIGATION LINKS ─── -->
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="skills.html" class="nav-link">Skills</a></li>
+          <li><a href="education.html" class="nav-link">Education</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="gallery.html" class="nav-link">Certifications</a></li>
+          <li><a href="resume.html" class="nav-link">Resume</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <!-- Dark overlay behind mobile menu — clicking it closes the menu -->
+        <label for="menuToggle" class="nav-overlay"></label>
+
+      </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         HERO SECTION (the big landing area)
+         ───────────────────────────────────────────────────────────────
+         This is the main visual of your homepage. It includes:
+         • Animated grid background
+         • Floating blurred orbs (teal, blue, purple)
+         • Floating code symbols ({ } / # _ $ > ~)
+         • CSS-only typing animation
+         • Decorative terminal window
+         • Scroll-down indicator
+    ═══════════════════════════════════════════════════════════════════ -->
+    <section class="hero" id="hero">
+
+      <!-- ─── HERO BACKGROUND (grid + orbs + glyphs) ─── -->
+      <div class="hero-bg">
+        <div class="hero-grid"></div>
+        <div class="hero-orb orb-1"></div>
+        <div class="hero-orb orb-2"></div>
+        <div class="hero-orb orb-3"></div>
+
+        <!-- Floating code symbols ────────────────── -->
+        <div class="hero-glyphs" aria-hidden="true">
+          <span class="glyph" style="top:15%;left:10%;animation-delay:0s">}</span>
+          <span class="glyph" style="top:70%;left:85%;animation-delay:0.5s">{</span>
+          <span class="glyph" style="top:25%;left:75%;animation-delay:1s">/</span>
+          <span class="glyph" style="top:60%;left:15%;animation-delay:1.5s">#</span>
+          <span class="glyph" style="top:80%;left:40%;animation-delay:2s">_</span>
+          <span class="glyph" style="top:35%;left:50%;animation-delay:2.5s">$</span>
+          <span class="glyph" style="top:10%;left:45%;animation-delay:3s">&gt;</span>
+          <span class="glyph" style="top:50%;left:5%;animation-delay:3.5s">~</span>
+        </div>
+      </div>
+
+      <!-- ─── HERO CONTENT (text + terminal) ─── -->
+      <div class="hero-content">
+
+        <!-- LEFT COLUMN: Text -->
+        <div class="hero-text">
+
+          <!-- Badge above name ── -->
+          <p class="hero-badge">Software Engineering Student</p>
+
+          <!-- Main name ── -->
+          <h2 class="hero-name">Fatima Ibrahim Abdullahi</h2>
+
+          <!-- Typing animation ── -->
+          <div class="hero-typed-line">
+            <span class="hero-sub">Software Engineer → Cybersecurity</span>
+          </div>
+
+          <!-- Tagline ── -->
+          <p class="hero-tagline">I am a Software Engineering student with a growing passion for cybersecurity and digital marketing.
+          I enjoy learning new skills and building practical solutions through continuous learning and hands-on experience.
+          </p>
+
+          <!-- Call-to-action buttons ──  -->
+          <div class="hero-actions">
+            <a href="projects.html" class="btn btn-primary">View My Work</a>
+            <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Terminal decoration ── -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-terminal">
+            <div class="terminal-bar">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+            </div>
+            <div class="terminal-body">
+              <span class="terminal-prompt">$</span>
+              <span class="terminal-command">npm run build:secure</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ─── SCROLL INDICATOR ───
+           Shows a bouncing scroll prompt at the bottom of the hero. -->
+      <div class="scroll-indicator">
+        <span>Scroll</span>
+        <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
+          <rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="8" cy="8" r="2" fill="currentColor" class="scroll-dot"/>
+        </svg>
+      </div>
+
+    </section>
+
+    <!--  FOOTER  (same on all 10 pages) -->
+    <footer class="footer">
+      <div class="footer-content">
+
+        <!-- Brand / logo -->
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Fatima Ibrahim Abdullahi<span class="logo-dot"></span></a>
+          <p>Software Engineering Student <br> Aspiring Cybersecurity Professional <br> Digital Marketing Enthusiast</p>
+        </div>
+
+        <!-- Quick links -->
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="skills.html">Skills</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
+        </div>
+
+        <!-- Copyright ── -->
+        <div class="footer-copy">
+          <p>&copy; 2024–2026 Fatima. Built with intentionality.</p>
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

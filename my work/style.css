@@ -1,0 +1,1708 @@
+/* ═════════════════════════════════════════════════════════════════════════
+   FATIMA PORTFOLIO — MAIN STYLESHEET
+   ─────────────────────────────────────────────────────────────────────────
+   HOW TO USE THIS FILE:
+   • Change the colors in the ":root" section below to theme the whole site
+   • Each page section is labeled — find the section you need
+   • The file is organized top-to-bottom matching the page flow
+   • All measurements use CSS variables so you can change sizes globally
+   ═════════════════════════════════════════════════════════════════════════ */
+
+
+/* ═════════════════════════════════════════════════════════════════════════
+   1.  COLORS & FONTS  (change these to theme your site)
+   ─────────────────────────────────────────────────────────────────────────
+   These are "CSS variables" (custom properties). Change a value here and
+   it updates everywhere on the site. This is the easiest way to customize.
+  
+   ═════════════════════════════════════════════════════════════════════════ */
+:root {
+
+  /* ─── DARK THEME BACKGROUNDS ─── */
+  --clr-bg: #0F1419;            /* Main page background */
+  --clr-bg-alt: #151C24;        /* Slightly lighter bg for cards/sections */
+  --clr-bg-card: #1A222C;       /* Card background inside dark sections */
+
+  /* ─── DARK THEME TEXT ─── */
+  --clr-text: #F5F5F5;          /* Main text color (near-white) */
+  --clr-text-dim: rgba(245,245,245,0.55);  /* Dimmer text for subtitles */
+
+  /* ─── BRAND / ACCENT COLOR ───
+     Change --clr-accent to your brand color to recolor buttons, highlights,
+     borders, hover effects, and animated elements across the entire site. */
+  --clr-accent: #00B4A6;        /* Main accent (teal) */
+  --clr-accent-dark: #008B82;   /* Darker accent for hover/active states */
+  --clr-accent-glow: rgba(0,180,166,0.2);  /* Glow effect behind elements */
+
+  /* ─── NEUTRAL / BORDER COLORS ─── */
+  --clr-neutral: #3A3F47;       /* Borders, dividers on dark backgrounds */
+  --clr-neutral-dim: rgba(58,63,71,0.25);  /* Subtle borders */
+
+  /* ─── LIGHT THEME (used on About, Skills, Projects light sections) ─── */
+  --clr-light-bg: #F7F8FA;      /* Background for light sections */
+  --clr-dark-text: #0F1419;     /* Text color on light backgrounds */
+  --clr-dark-dim: rgba(15,20,25,0.6);  /* Dimmer text on light bg */
+
+  /* ─── LIGHT THEME CARDS ─── */
+  --clr-card-bg: #ffffff;       /* Card background on light sections */
+  --clr-card-border: #e8e8e8;   /* Card border on light sections */
+
+  /* ─── FONTS ───
+     💡 TIP: Change these to use different Google Fonts.
+            Must also update the <link> tag inside every HTML <head>. */
+  --ff-display: 'Sora', sans-serif;        /* Headings / titles */
+  --ff-body: 'DM Sans', sans-serif;         /* Body / paragraph text */
+  --ff-mono: 'JetBrains Mono', monospace;   /* Code / technical labels */
+
+  /* ─── LAYOUT SIZES ───
+     💡 TIP: Adjust these to change spacing across the whole site at once. */
+  --nav-h: 64px;                /* Navbar height */
+  --max-w: 1200px;              /* Max content width */
+  --section-pad: clamp(80px, 12vh, 140px);  /* Padding above/below sections */
+}
+
+/* ═════════════════════════════════════════════════════════════════════════
+   2.  CSS RESET  (removes default browser spacing)
+   ─────────────────────────────────────────────────────────────────────────
+   💡 TIP: You normally don't need to change anything here.
+   ═════════════════════════════════════════════════════════════════════════ */
+
+/* Remove default margins/padding so everything starts from a clean slate */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Smooth scrolling when clicking anchor links */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--ff-body);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  overflow-x: hidden;              /* Prevent horizontal scroll on mobile */
+}
+
+/* Selected text color (highlight) */
+::selection { background: var(--clr-accent); color: var(--clr-bg); }
+
+img  { max-width: 100%; display: block; }
+a    { text-decoration: none; color: inherit; }
+ul   { list-style: none; }
+
+/* ═════════════════════════════════════════════════════════════════════════
+   3.  TYPOGRAPHY  (headings, labels, text styles)
+   ─────────────────────────────────────────────────────────────────────────
+   💡 TIP: Change font-size values here to make text bigger/smaller globally.
+   ═════════════════════════════════════════════════════════════════════════ */
+
+/* Headings use the display font (Sora) */
+h1, h2, h3 { font-family: var(--ff-display); font-weight: 700; line-height: 1.15; }
+
+/* Responsive font sizes: min size / preferred / max size */
+h1 { font-size: clamp(1rem, 10vw, 5rem); }
+h2 { font-size: clamp(1.8rem, 4.5vw, 2.5rem); margin-bottom: 0.5rem; }
+
+/* ─── Section label (small uppercase text above titles) ───
+     Example: "About" or "Skills" in small mono text.
+   💡 TIP: Use <span class="section-label">Label</span> in your HTML. */
+.section-label {
+  font-family: var(--ff-mono);
+  font-size: .75rem;
+  font-weight: 500;
+  color: var(--clr-accent);
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  display: inline-block;
+  margin-bottom: .75rem;
+  position: relative;
+}
+
+/* Small accent line before the label */
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--clr-accent);
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* Centered section header (used on inner pages) */
+.section-header { text-align: center; margin-bottom: 3rem; }
+.section-header h2 { color: var(--clr-text); }
+.section-header .section-label { margin-bottom: .5rem; }
+.light-section .section-header h2 { color: var(--clr-dark-text); }
+
+/* ═════════════════════════════════════════════════════════════════════════
+   5.  PAGE LOAD ENTRANCE  (fades in the whole page when it loads)
+   ─────────────────────────────────────────────────────────────────────────
+   💡 TIP: Wrap all page content in <div class="page-wrap"> to enable this.
+   ═════════════════════════════════════════════════════════════════════════ */
+
+.page-wrap { animation: pageFadeIn .6s ease forwards; }
+
+/* Subtle grain texture overlay — sits on top of everything, pointer-events off
+   so it never blocks clicks. Gives pages a polished, tactile feel. */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: .035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* ═════════════════════════════════════════════════════════════════════════
+   6.  NAVBAR  (the sticky top menu — same on all 10 pages)
+   ─────────────────────────────────────────────────────────────────────────
+   💡 TIP: To add/remove a nav link, edit the <ul class="nav-links"> in every
+          single HTML file. Add <li><a href="page.html" class="nav-link">Name</a></li>.
+   ═════════════════════════════════════════════════════════════════════════ */
+
+.navbar {
+  position: fixed;                 /* Stays at top while scrolling */
+  top: 0; left: 0;
+  width: 100%;
+  height: var(--nav-h);
+  z-index: 1000;
+  background: rgba(15, 20, 25, .85);
+  backdrop-filter: blur(16px) saturate(180%);   /* Glass blur effect */
+  -webkit-backdrop-filter: blur(16px) saturate(180%);  /* Safari support */
+  border-bottom: 1px solid rgba(58, 63, 71, .2);
+}
+
+/* Inner container — centers content and limits max width */
+.navbar-content {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* ─── Logo (left side) ─── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--ff-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  z-index: 1002;                  /* Stays above mobile menu overlay */
+}
+
+/* Small pulsing dot next to logo */
+.logo-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--clr-accent);
+  animation: logoPulse 2s ease-in-out infinite;
+}
+
+/* Gradient text on the logo */
+.logo-text {
+  background: linear-gradient(135deg, var(--clr-text), var(--clr-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Navigation links (horizontal row on desktop) ─── */
+.nav-links {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+/* Each link in the nav */
+.nav-link {
+  font-size: .875rem;
+  color: var(--clr-text-dim);
+  position: relative;
+  padding: 4px 0;
+  transition: color .3s;
+}
+
+/* Animated underline — hidden by default, appears on hover/active */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: var(--clr-accent);
+  transform: scaleX(0);            /* Start at zero width (invisible) */
+  transform-origin: right;         /* Grows from right to left */
+  transition: transform .35s ease;
+  opacity: 0;
+}
+
+/* 💡 Add class="active" to the link matching the current page */
+.nav-link:hover,
+.nav-link.active { color: var(--clr-text); }
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);            /* Full width = visible */
+  transform-origin: left;
+  opacity: 1;
+}
+
+/* ═════════════════════════════════════════════════════════════════════════
+   7.  HAMBURGER MENU  (CSS-only — NO JavaScript!)
+   ─────────────────────────────────────────────────────────────────────────
+   HOW IT WORKS (the "CSS checkbox hack"):
+   1. A hidden <input type="checkbox"> sits BEFORE the hamburger + nav
+   2. Clicking the <label> (hamburger icon) toggles the checkbox
+   3. CSS uses :checked to show/hide the nav-links and animate the icon
+   4. The dark overlay <label> also toggles it off when clicked
+   ═════════════════════════════════════════════════════════════════════════ */
+
+/* Hide the actual checkbox (it's invisible but functional) */
+.menu-toggle { display: none; }
+
+/* ─── 3-line hamburger icon (hidden on desktop, shown on mobile) ─── */
+.hamburger {
+  display: none;                   /* Desktop: hidden */
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1002;
+  position: relative;
+}
+
+/* Each of the 3 horizontal lines */
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--clr-text);
+  border-radius: 2px;
+  transition: transform .3s ease, opacity .3s ease;
+}
+
+/* ─── When checkbox IS checked: animate hamburger into X shape ─── */
+.menu-toggle:checked ~ .hamburger span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);     /* Top line → \ */
+}
+.menu-toggle:checked ~ .hamburger span:nth-child(2) {
+  opacity: 0;                                    /* Middle line → disappears */
+}
+.menu-toggle:checked ~ .hamburger span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);    /* Bottom line → / */
+}
+
+/* ─── Show the mobile menu panel ─── */
+.menu-toggle:checked ~ .nav-links { right: 0; }
+
+/* ─── Show the dark overlay behind the menu ─── */
+.menu-toggle:checked ~ .nav-overlay {
+  opacity: 1;
+  pointer-events: auto;            /* Now clickable — closes menu when clicked */
+}
+
+/* Dark overlay behind mobile menu */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .5);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;            /* Invisible + unclickable by default */
+  transition: opacity .45s ease;
+}
+
+/* ═════════════════════════════════════════════════════════════════════════
+   8.  PAGE HERO  (the top banner on inner pages like About, Skills, etc.)
+   ─────────────────────────────────────────────────────────────────────────
+   TIP: The HOME page (index.html) uses its own special ".hero" section.
+          These ".page-hero" styles are for the other 9 pages.
+   ═════════════════════════════════════════════════════════════════════════ */
+
+.page-hero {
+  padding: calc(var(--nav-h) + 60px) 24px 40px;  /* Leave room for fixed navbar */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background layer (floating orbs) */
+.page-hero-bg { position: absolute; inset: 0; z-index: 0; }
+
+/* Content sits above the background */
+.page-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+.page-hero h1 { font-size: clamp(2.2rem, 6vw, 3.5rem); margin-bottom: .5rem; }
+.page-hero p {
+  font-size: 1.0625rem;
+  color: var(--clr-text-dim);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ═════════════════════════════════════════════════════════════════════════
+   9.  BUTTONS  (reusable button styles for the whole site)
+   ═════════════════════════════════════════════════════════════════════════ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: var(--ff-body);
+  font-size: .9375rem;
+  font-weight: 600;
+  padding: 14px 32px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all .35s cubic-bezier(.25, .46, .45, .94);
+}
+
+/* ─── Filled button (accent color background) ─── */
+.btn-primary {
+  background: var(--clr-accent);
+  color: var(--clr-bg);
+  border-color: var(--clr-accent);
+}
+
+.btn-primary:hover {
+  background: var(--clr-accent-dark);
+  border-color: var(--clr-accent-dark);
+  transform: translateY(-2px);             /* Lifts up on hover */
+  box-shadow: 0 12px 40px var(--clr-accent-glow);  /* Glow effect */
+}
+
+/* ─── Outline button (transparent, just a border) ─── */
+.btn-outline {
+  background: transparent;
+  color: var(--clr-text);
+  border-color: rgba(245, 245, 245, .25);
+}
+
+.btn-outline:hover {
+  border-color: var(--clr-accent);
+  color: var(--clr-accent);
+  transform: translateY(-2px);
+}
+
+/* ─── Variants ─── */
+.btn-small { padding: 10px 20px; font-size: .8125rem; }
+.btn-full  { width: 100%; justify-content: center; }
+
+.btn-light {
+  background: var(--clr-accent);
+  color: var(--clr-bg);
+  border-color: var(--clr-accent);
+}
+
+.btn-light:hover {
+  background: var(--clr-accent-dark);
+  border-color: var(--clr-accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px var(--clr-accent-glow);
+}
+
+/* ═════════════════════════════════════════════════════════════════════════
+   10. HERO SECTION  (the main landing page — index.html only!)
+   ─────────────────────────────────────────────────────────────────────────
+   This is the big full-screen intro visitors see first. It includes:
+   • Animated grid background
+   • Floating blurred orbs (teal + blue + purple)
+   • Floating code symbols ({ } / # _ $ > ~)
+   • CSS-only typing animation
+   • Decorative terminal window
+   • Scroll-down indicator
+   ═════════════════════════════════════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  min-height: 100dvh;             /* At least the full viewport height */
+  display: flex;
+  align-items: center;
+  overflow: hidden;               /* Orbs going off-screen are hidden */
+  padding: var(--nav-h) 24px 40px;
+}
+
+/* ─── Background layer (grid + orbs + code symbols) ─── */
+.hero-bg { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+
+/* Subtle animated grid pattern */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 180, 166, .04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 180, 166, .04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  animation: gridDrift 40s linear infinite;
+}
+
+/* ─── Floating blurred orbs (decorative background shapes) ───
+   💡 TIP: Adjust size, color, position, and animation speed to customize. */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: .25;
+}
+
+.orb-1 {
+  width: 600px; height: 600px;
+  background: var(--clr-accent);
+  top: -20%; right: -10%;
+  animation: orbFloat 25s ease-in-out infinite;
+}
+.orb-2 {
+  width: 450px; height: 450px;
+  background: #1a3a5c;
+  bottom: -15%; left: -5%;
+  animation: orbFloat 30s ease-in-out infinite reverse;
+}
+.orb-3 {
+  width: 350px; height: 350px;
+  background: #2d1b4e;
+  top: 50%; left: 40%;
+  animation: orbFloat 22s ease-in-out infinite 3s;  /* 3-second delay before start */
+}
+
+/* ─── Floating code symbols ({ } / # _ $ > ~) ───
+   These drift around the background for a tech-themed atmosphere. */
+.hero-glyphs { position: absolute; inset: 0; z-index: 1; }
+
+.glyph {
+  position: absolute;
+  font-family: var(--ff-mono);
+  font-size: 1.5rem;
+  color: rgba(0, 180, 166, .12);
+  animation: glyphFloat 8s ease-in-out infinite;
+}
+
+/* ─── Hero content (text on left + terminal on right) ─── */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* Two equal columns */
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-text { max-width: 580px; }
+
+/* Small badge above the name */
+.hero-badge {
+  display: inline-block;
+  font-family: var(--ff-mono);
+  font-size: .7rem;
+  font-weight: 500;
+  color: var(--clr-accent);
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  border: 1px solid rgba(0, 180, 166, .25);
+  padding: 6px 14px;
+  margin-bottom: 1.5rem;
+  animation: fadeSlideIn .8s ease .2s forwards;
+  opacity: 0;                     /* Starts invisible → fades in */
+}
+
+/* Main name — large gradient text */
+.hero-name {
+  font-size: clamp(3.5rem, 12vw, 6rem);
+  font-weight: 800;
+  letter-spacing: -.04em;
+  line-height: .95;
+  margin-bottom: .75rem;
+  background: linear-gradient(135deg, var(--clr-text) 40%, var(--clr-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeSlideIn .8s ease .4s forwards;
+  opacity: 0;
+}
+
+/* Container for the typing effect */
+.hero-typed-line {
+  min-height: 2.2em;
+  margin-bottom: .5rem;
+  animation: fadeSlideIn .8s ease .6s forwards;
+  opacity: 0;
+}
+
+/* ─── CSS-Only Typing Animation ─── */
+.hero-sub {
+  font-family: var(--ff-mono);
+  font-size: clamp(.9rem, 2vw, 1.15rem);
+  color: var(--clr-accent);
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;            /* Keep text on one line for typing effect */
+  border-right: 2px solid var(--clr-accent);  /* The blinking cursor */
+  width: 0;                       /* Starts at zero — types out to full width */
+  animation:
+    heroType 2.5s steps(30) .8s forwards,   /* Types out the text */
+    heroBlink .7s step-end 3.3s infinite;    /* Then blinks the cursor */
+}
+
+/* Tagline below the typed text */
+.hero-tagline {
+  font-size: clamp(.95rem, 1.8vw, 1.1rem);
+  color: var(--clr-text-dim);
+  margin-bottom: 2rem;
+  animation: fadeSlideIn .8s ease .8s forwards;
+  opacity: 0;
+}
+
+/* Action buttons */
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeSlideIn .8s ease 1s forwards;
+  opacity: 0;
+}
+
+/* ─── Decorative Terminal Window (right column) ─── */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  animation: fadeSlideIn 1s ease 1.2s forwards;
+  opacity: 0;
+}
+
+.hero-terminal {
+  width: 100%;
+  max-width: 380px;
+  background: rgba(15, 20, 25, .7);
+  border: 1px solid rgba(58, 63, 71, .3);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+  transform: perspective(800px) rotateY(-4deg);  /* Subtle 3D tilt */
+  transition: transform .6s ease;
+}
+
+.hero-terminal:hover { transform: perspective(800px) rotateY(0deg); }
+
+/* Terminal top bar with traffic light dots */
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: rgba(58, 63, 71, .15);
+  border-bottom: 1px solid rgba(58, 63, 71, .2);
+}
+
+.terminal-dot { width: 10px; height: 10px; border-radius: 50%; }
+.terminal-dot.red    { background: #ff5f56; }
+.terminal-dot.yellow { background: #ffbd2e; }
+.terminal-dot.green  { background: #27c93f; }
+
+/* Terminal body with command text */
+.terminal-body { padding: 16px 14px; min-height: 80px; }
+.terminal-prompt { color: var(--clr-accent); margin-right: 8px; }
+.terminal-command {
+  font-family: var(--ff-mono);
+  font-size: .875rem;
+  color: var(--clr-text-dim);
+  animation: termCycle 10s steps(1) infinite;  /* Cycles through commands */
+}
+
+/* ─── Scroll-down indicator ───*/
+.scroll-indicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+  color: var(--clr-text-dim);
+  animation: fadeSlideIn 1s ease 2s forwards;
+  opacity: 0;
+}
+
+.scroll-indicator span {
+  font-family: var(--ff-mono);
+  font-size: .65rem;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+}
+
+.scroll-dot { animation: scrollDot 2s ease-in-out infinite; }  /* Bouncing dot */
+
+/* ═════════════════════════════════════════════════════════════════════════
+   11. ABOUT PAGE  (about.html)
+   ─────────────────────────────────────────────────────────────────────────
+   Two-column layout: text on left, stat cards on right.
+   ═════════════════════════════════════════════════════════════════════════ */
+
+.about-page {
+  padding: var(--section-pad) 24px;
+  background: var(--clr-light-bg);
+  color: var(--clr-dark-text);
+}
+
+.about-container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;  /* Text takes slightly more space */
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Paragraph styling in the about text */
+.about-text p { color: var(--clr-dark-dim); line-height: 1.8; margin-bottom: 1rem; }
+.about-text p:first-of-type { font-size: 1.125rem; color: var(--clr-dark-text); }
+.about-text em { color: var(--clr-accent); font-style: normal; font-weight: 500; }
+
+/* ─── Statistics cards (right column) ───
+   💡 TIP: Update the numbers in about.html's .stat-num spans. */
+.about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.stat-card {
+  background: var(--clr-light-bg);
+  border: 1px solid rgba(58, 63, 71, .12);
+  padding: 24px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+
+/* Dark slide-up overlay on hover */
+.stat-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--clr-bg);
+  transform: translateY(100%);     /* Hidden below by default */
+  transition: transform .5s ease;
+  z-index: 0;
+}
+
+.stat-card:hover::before { transform: translateY(0); }  /* Slides up on hover */
+.stat-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,.08); }
+.stat-card:hover .stat-num,
+.stat-card:hover .stat-label { position: relative; z-index: 1; color: var(--clr-text); }
+
+.stat-num {
+  display: block;
+  font-family: var(--ff-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--clr-accent);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-label { font-size: .8125rem; color: var(--clr-dark-dim); line-height: 1.4; }
+
+/* ═════════════════════════════════════════════════════════════════════════
+   12. QUOTE SECTION  (about.html)
+   ─────────────────────────────────────────────────────────────────────────
+   A full-bleed section with diagonal clip-path edges and a centered quote.
+   ═════════════════════════════════════════════════════════════════════════ */
+
+.philosophy {
+  position: relative;
+  padding: clamp(100px, 16vh, 180px) 24px;
+  background: var(--clr-bg);
+  overflow: hidden;
+  clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%);  /* Angled top/bottom edges */
+}
+
+.philosophy-bg { position: absolute; inset: 0; }
+
+/* Background orbs for the philosophy section */
+.philosophy-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: .12;
+}
+
+.shape-1 {
+  width: 500px; height: 500px;
+  background: var(--clr-accent);
+  top: -20%; right: 20%;
+  animation: orbFloat 20s ease-in-out infinite;
+}
+
+.shape-2 {
+  width: 400px; height: 400px;
+  background: #1a3a5c;
+  bottom: -30%; left: 10%;
+  animation: orbFloat 25s ease-in-out infinite reverse;
+}
+
+/* The quote itself */
+.philosophy-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.quote-mark {
+  display: block;
+  font-family: var(--ff-display);
+  font-size: 6rem;
+  line-height: .5;
+  color: var(--clr-accent);
+  opacity: .3;
+  margin-bottom: .5rem;
+}
+
+.quote-text {
+  font-family: var(--ff-display);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--clr-text);
+  margin-bottom: 1.5rem;
+}
+
+.quote-attribution {
+  font-family: var(--ff-mono);
+  font-size: .875rem;
+  color: var(--clr-text-dim);
+  font-style: normal;
+}
+
+/* ═════════════════════════════════════════════════════════════════════════
+   13. SKILLS PAGE  (skills.html)
+   ─────────────────────────────────────────────────────────────────────────
+   Each skill category has a heading + progress bars showing proficiency.
+   💡 TIP: Edit the percentage in skills.html's style="width:X%" on each bar.
+   ═════════════════════════════════════════════════════════════════════════ */
+
+.skills-page {
+  background: var(--clr-light-bg);
+  color: var(--clr-dark-text);
+  padding: var(--section-pad) 24px;
+}
+
+.skills-container { max-width: var(--max-w); margin: 0 auto; }
+
+/* ─── Each skill category block (Frontend, Backend, etc.) ─── */
+.skills-category { margin-bottom: 3rem; }
+
+/* Category heading with accent left border */
+.skills-category h3 {
+  font-family: var(--ff-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--clr-dark-text);
+  margin-bottom: 1.25rem;
+  padding-left: .5rem;
+  border-left: 3px solid var(--clr-accent);
+}
+
+/* ─── Progress bars grid ───
+     Two columns of skill bars. Each bar has a label + percentage + track. */
+.skill-bar-group { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 3rem; }
+
+.skill-bar-item { display: flex; flex-direction: column; gap: 6px; }
+
+/* The label row: skill name on left, percentage on right */
+.skill-bar-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: .875rem;
+}
+
+.skill-bar-header span:first-child { color: var(--clr-dark-text); font-weight: 500; }
+.skill-bar-header span:last-child {
+  color: var(--clr-accent);
+  font-family: var(--ff-mono);
+  font-size: .75rem;
+}
+
+/* The gray background track */
+.skill-bar-track {
+  height: 8px;
+  background: rgba(58, 63, 71, .1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* The colored fill bar — animate from 0 to width% on page load */
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--clr-accent), var(--clr-accent-dark));
+  width: 0;
+  animation: barFill 1.2s ease .3s forwards;
+}
+
+/* 3-column layout for skill category cards (alternative layout) */
+.skills-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+
+/* ═════════════════════════════════════════════════════════════════════════
+   14. EDUCATION PAGE  (education.html)
+   ─────────────────────────────────────────────────────────────────────────
+   Vertical timeline with animated line that draws itself on load.
+   💡 TIP: Add/remove items by copying an .edu-item block in education.html.
+   ═════════════════════════════════════════════════════════════════════════ */
+
+.education-page { background: var(--clr-bg); padding: var(--section-pad) 24px; }
+.edu-container { max-width: var(--max-w); margin: 0 auto; }
+
+/* ─── Timeline track ─── */
+.edu-track { position: relative; padding-top: 2rem; padding-left: 2rem; }
+
+/* The vertical line */
+.edu-line {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--clr-neutral);
+  overflow: hidden;
+}
+
+/* The accent-colored line that grows from top to bottom on page load */
+.edu-line::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--clr-accent);
+  animation: lineGrow 1.8s cubic-bezier(.25, .46, .45, .94) .3s forwards;
+  transform-origin: top;
+  transform: scaleY(0);            /* Starts at zero height */
+}
+
+/* ─── Each timeline item ───
+     Items fade in one by one with staggered delays. */
+.edu-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding-left: 2rem;
+  opacity: 0;
+  animation: fadeSlideIn .6s ease forwards;
+}
+
+.edu-item:nth-child(1) { animation-delay: .3s; }
+.edu-item:nth-child(2) { animation-delay: .6s; }
+.edu-item:nth-child(3) { animation-delay: .9s; }
+.edu-item:nth-child(4) { animation-delay: 1.2s; }
+
+/* Glowing dot on the timeline */
+.edu-dot {
+  position: absolute;
+  left: -2rem;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--clr-accent);
+  border: 3px solid var(--clr-bg);
+  box-shadow: 0 0 0 2px var(--clr-accent), 0 0 20px var(--clr-accent-glow);
+}
+
+/* Card containing the education details */
+.edu-card { background: var(--clr-bg-alt); border: 1px solid var(--clr-neutral); padding: 24px; }
+
+.edu-year {
+  display: block;
+  font-family: var(--ff-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--clr-accent);
+  margin-bottom: .5rem;
+}
+
+.edu-card h3 { font-size: 1.125rem; margin-bottom: .25rem; }
+.edu-card .edu-meta { font-size: .875rem; color: var(--clr-text-dim); margin-bottom: .75rem; }
+.edu-card p { font-size: .9375rem; color: rgba(245, 245, 245, .8); line-height: 1.7; }
+
+/* ═════════════════════════════════════════════════════════════════════════
+   15. EXPERIENCE PAGE  (experience.html)
+   ─────────────────────────────────────────────────────────────────────────
+   Same timeline layout as Education but with a light background theme
+   ═════════════════════════════════════════════════════════════════════════ */
+
+.experience-page {
+  background: var(--clr-light-bg);
+  color: var(--clr-dark-text);
+  padding: var(--section-pad) 24px;
+}
+
+.exp-container { max-width: var(--max-w); margin: 0 auto; }
+
+/* Timeline structure — identical to education but lighter theme */
+.exp-track { position: relative; padding-top: 2rem; padding-left: 2rem; }
+
+.exp-line {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: rgba(58, 63, 71, .15);
+  overflow: hidden;
+}
+
+.exp-line::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--clr-accent);
+  animation: lineGrow 1.8s cubic-bezier(.25, .46, .45, .94) .3s forwards;
+  transform-origin: top;
+  transform: scaleY(0);
+}
+
+.exp-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding-left: 2rem;
+  opacity: 0;
+  animation: fadeSlideIn .6s ease forwards;
+}
+
+.exp-item:nth-child(1) { animation-delay: .3s; }
+.exp-item:nth-child(2) { animation-delay: .6s; }
+.exp-item:nth-child(3) { animation-delay: .9s; }
+.exp-item:nth-child(4) { animation-delay: 1.2s; }
+
+.exp-dot {
+  position: absolute;
+  left: -2rem; top: 4px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--clr-accent);
+  border: 3px solid var(--clr-light-bg);
+  box-shadow: 0 0 0 2px var(--clr-accent), 0 0 20px var(--clr-accent-glow);
+}
+
+.exp-card {
+  background: var(--clr-card-bg, #fff);
+  border: 1px solid var(--clr-card-border, #e8e8e8);
+  padding: 24px;
+}
+
+.exp-card h3 { font-size: 1.125rem; margin-bottom: .25rem; color: var(--clr-dark-text); }
+.exp-card .exp-meta { font-size: .875rem; color: var(--clr-dark-dim); margin-bottom: .75rem; }
+.exp-card p { font-size: .9375rem; color: var(--clr-dark-dim); line-height: 1.7; }
+
+/* ═════════════════════════════════════════════════════════════════════════
+   16. PROJECTS PAGE  (projects.html)
+   ─────────────────────────────────────────────────────────────────────────
+   Has two parts: (1) a featured showcase section with dark bg, (2) a grid
+   of project cards on a light background.
+   ═════════════════════════════════════════════════════════════════════════ */
+
+.projects-page {
+  background: var(--clr-light-bg);
+  color: var(--clr-dark-text);
+  padding: var(--section-pad) 24px;
+}
+
+.projects-container { max-width: var(--max-w); margin: 0 auto; }
+
+/* ─── Featured Showcase (dark background section) ───
+     A highlighted project with description + terminal-like frame image. */
+.showcase {
+  background: var(--clr-bg);
+  padding: var(--section-pad) 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background glow pattern */
+.showcase-bg { position: absolute; inset: 0; opacity: .08; }
+
+.showcase-pattern {
+  width: 100%;
+  height: 200%;
+  background:
+    radial-gradient(circle at 30% 50%, var(--clr-accent) 0, transparent 50%),
+    radial-gradient(circle at 70% 50%, #1a3a5c 0, transparent 50%);
+}
+
+.showcase-content { max-width: var(--max-w); margin: 0 auto; position: relative; z-index: 1; }
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.showcase-description { font-size: 1.0625rem; color: var(--clr-text-dim); line-height: 1.8; margin-bottom: 1.5rem; }
+
+.showcase-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.5rem; }
+
+.showcase-tags span {
+  font-family: var(--ff-mono);
+  font-size: .75rem;
+  color: var(--clr-accent);
+  border: 1px solid rgba(0, 180, 166, .2);
+  padding: 4px 10px;
+}
+
+/* Terminal-like frame decoration */
+.showcase-frame {
+  border: 1px solid rgba(58, 63, 71, .3);
+  overflow: hidden;
+  background: rgba(15, 20, 25, .6);
+  backdrop-filter: blur(8px);
+}
+
+.frame-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: rgba(58, 63, 71, .15);
+  border-bottom: 1px solid rgba(58, 63, 71, .2);
+}
+
+.frame-bar span:not(.frame-url) { width: 8px; height: 8px; border-radius: 50%; background: var(--clr-neutral); }
+.frame-url { margin-left: auto; font-family: var(--ff-mono); font-size: .65rem; color: var(--clr-text-dim); }
+.frame-content { padding: 20px 16px; display: flex; flex-direction: column; gap: 6px; }
+.frame-line { height: 6px; background: rgba(58, 63, 71, .25); border-radius: 3px; }
+.frame-line.short { width: 60%; }
+.frame-line.accent { background: var(--clr-accent); width: 40%; }
+
+/* ─── Project Cards Grid (light background) ─── */
+.projects-grid {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.project-card {
+  background: var(--clr-card-bg, #fff);
+  border: 1px solid var(--clr-card-border, #e8e8e8);
+  overflow: hidden;
+  transition: transform .5s ease, box-shadow .5s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,.07); }
+
+/* Colored thumbnail at top of card */
+.project-thumb { height: 160px; overflow: hidden; position: relative; }
+
+.project-thumb-bg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .6s ease;
+}
+
+.project-card:hover .project-thumb-bg { transform: scale(1.05); }  /* Zoom on hover */
+
+.project-icon {
+  font-family: var(--ff-mono);
+  font-size: 2rem;
+  color: rgba(255, 255, 255, .2);
+  font-weight: 500;
+}
+
+/* Card body below the thumbnail */
+.project-body { padding: 24px; flex: 1; display: flex; flex-direction: column; gap: .75rem; }
+
+.project-body h3 {
+  font-family: var(--ff-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--clr-dark-text);
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+}
+
+/* Animated underline on project title (appears on card hover) */
+.project-body h3::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--clr-accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .4s ease;
+}
+
+.project-card:hover .project-body h3::after { transform: scaleX(1); transform-origin: left; }
+
+.project-body p { font-size: .875rem; color: var(--clr-dark-dim); line-height: 1.6; flex: 1; }
+
+.project-tech { display: flex; flex-wrap: wrap; gap: .35rem; }
+
+.project-tech span {
+  font-family: var(--ff-mono);
+  font-size: .6875rem;
+  color: var(--clr-dark-text);
+  background: #E8E8E8;
+  padding: 3px 8px;
+}
+
+.project-foot { display: flex; gap: 1rem; padding-top: .5rem; }
+
+.project-link {
+  font-size: .8125rem;
+  font-weight: 600;
+  color: var(--clr-accent);
+  position: relative;
+  padding-bottom: 2px;
+}
+
+/* Animated underline on project links */
+.project-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .35s ease;
+}
+
+.project-link:hover::after { transform: scaleX(1); transform-origin: left; }
+
+/* ═════════════════════════════════════════════════════════════════════════
+   17. SERVICES PAGE  (services.html)
+   ─────────────────────────────────────────────────────────────────────────
+   4-column grid of service cards with icon, title, and description
+   ═════════════════════════════════════════════════════════════════════════ */
+
+.services-page { background: var(--clr-bg); padding: var(--section-pad) 24px; }
+.services-container { max-width: var(--max-w); margin: 0 auto; }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.service-card {
+  background: var(--clr-bg-alt);
+  border: 1px solid var(--clr-neutral);
+  padding: 32px 24px;
+  text-align: center;
+  transition: transform .4s ease, box-shadow .4s ease, border-color .4s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--clr-accent);       /* Accent border on hover */
+  box-shadow: 0 16px 48px rgba(0,0,0,.15);
+}
+
+.service-icon { width: 48px; height: 48px; color: var(--clr-accent); margin: 0 auto 1rem; }
+.service-icon svg { width: 100%; height: 100%; }
+.service-card h3 { font-size: 1.125rem; font-weight: 600; margin-bottom: .75rem; }
+.service-card p { font-size: .875rem; color: var(--clr-text-dim); line-height: 1.7; }
+
+/* ═════════════════════════════════════════════════════════════════════════
+   18. GALLERY PAGE  (gallery.html)
+   ─────────────────────────────────────────────────────────────────────────
+   Certificate/preview cards (3-col grid) + Bookshelf reading log (6-col grid).
+   💡 TIP: Edit cards in .gallery-grid or books in .books-grid in gallery.html.
+   ═════════════════════════════════════════════════════════════════════════ */
+
+.gallery-page {
+  background: var(--clr-light-bg);
+  color: var(--clr-dark-text);
+  padding: var(--section-pad) 24px;
+}
+
+.gallery-container { max-width: var(--max-w); margin: 0 auto; }
+
+/* ─── Certificate / achievement cards ─── */
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+
+.gallery-card {
+  background: var(--clr-card-bg, #fff);
+  border: 1px solid var(--clr-card-border, #e8e8e8);
+  overflow: hidden;
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+
+.gallery-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.07); }
+
+.gallery-thumb {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.gallery-body { padding: 20px; }
+.gallery-body h3 { font-size: 1rem; font-weight: 600; margin-bottom: .25rem; color: var(--clr-dark-text); }
+.gallery-body p { font-size: .8125rem; color: var(--clr-dark-dim); }
+
+/* ═════════════════════════════════════════════════════════════════════════
+   19. RESUME PAGE  (resume.html)
+   ─────────────────────────────────────────────────────────────────────────
+   A professional CV/resume card layout with education, skills, experience.
+   💡 TIP: Edit the content in resume.html to match your real experience.
+   ═════════════════════════════════════════════════════════════════════════ */
+
+.resume-page {
+  background: var(--clr-light-bg);
+  color: var(--clr-dark-text);
+  padding: var(--section-pad) 24px;
+}
+
+.resume-container { max-width: 800px; margin: 0 auto; }
+
+/* The white card that holds all resume content */
+.resume-card {
+  background: var(--clr-card-bg, #fff);
+  border: 1px solid var(--clr-card-border, #e8e8e8);
+  padding: 40px;
+}
+
+/* Header with name + title */
+.resume-header { text-align: center; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 2px solid var(--clr-accent); }
+.resume-header h1 { font-size: 2.5rem; margin-bottom: .25rem; }
+.resume-header .resume-title { font-size: 1.0625rem; color: var(--clr-accent); font-weight: 500; }
+.resume-header p { font-size: .875rem; color: var(--clr-dark-dim); margin-top: .5rem; }
+
+/* Each section of the resume (Education, Skills, Experience, etc.) */
+.resume-section { margin-bottom: 2rem; }
+
+.resume-section h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 1px solid var(--clr-card-border, #e8e8e8);
+  color: var(--clr-dark-text);
+}
+
+.resume-item { margin-bottom: 1rem; }
+.resume-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: .15rem; }
+.resume-item .resume-meta { font-size: .8125rem; color: var(--clr-accent); margin-bottom: .35rem; }
+.resume-item p { font-size: .875rem; color: var(--clr-dark-dim); line-height: 1.6; }
+
+/* Two-column grid for skill tags */
+.resume-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+/* Skill tag pills */
+.resume-tag {
+  display: inline-block;
+  font-family: var(--ff-mono);
+  font-size: .6875rem;
+  padding: 3px 8px;
+  background: #E8E8E8;
+  color: var(--clr-dark-text);
+  margin: 2px;
+}
+
+/* Download button at bottom */
+.resume-download { text-align: center; margin-top: 2rem; }
+
+/* ═════════════════════════════════════════════════════════════════════════
+   20. CONTACT PAGE  (contact.html)
+   ─────────────────────────────────────────────────────────────────────────
+   Two-column layout: contact info on left, contact form on right.
+   💡 TIP: Update the email/LinkedIn/GitHub links in contact.html.
+   ═════════════════════════════════════════════════════════════════════════ */
+
+.contact-page { background: var(--clr-bg); padding: var(--section-pad) 24px; }
+
+.contact-container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.contact-sub { font-size: 1.0625rem; color: var(--clr-text-dim); margin-bottom: 2.5rem; }
+
+/* ─── Contact method links (email, LinkedIn, GitHub) ─── */
+.contact-methods { display: flex; flex-direction: column; gap: 1rem; }
+
+.contact-method {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: 14px 18px;
+  border: 1px solid rgba(58, 63, 71, .2);
+  color: var(--clr-text-dim);
+  font-size: .9375rem;
+  transition: all .35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-method svg { flex-shrink: 0; color: var(--clr-accent); }
+
+.contact-method:hover {
+  border-color: var(--clr-accent);
+  color: var(--clr-text);
+  transform: translateX(4px);      /* Slides slightly right */
+  box-shadow: 0 4px 20px rgba(0, 180, 166, .06);
+}
+
+/* ─── Contact Form ───
+     Floating label design: the label sits inside the input, then floats up
+     when the user types or focuses. */
+
+.form-group { position: relative; margin-bottom: 1.25rem; }
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background: transparent;
+  border: 1px solid rgba(58, 63, 71, .3);
+  color: var(--clr-text);
+  font-family: var(--ff-body);
+  font-size: .9375rem;
+  outline: none;
+  transition: border-color .3s ease;
+  resize: vertical;
+}
+
+/* Label floats inside the input by default */
+.form-group label {
+  position: absolute;
+  left: 16px;
+  top: 14px;
+  color: var(--clr-text-dim);
+  font-size: .9375rem;
+  pointer-events: none;            /* Clicking label focuses the input */
+  transition: all .3s ease;
+  background: var(--clr-bg);
+  padding: 0 4px;
+}
+
+/* On focus or when text is entered, label floats upward */
+.form-group input:focus,
+.form-group textarea:focus { border-color: var(--clr-accent); }
+
+.form-group input:focus + label,
+.form-group textarea:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:not(:placeholder-shown) + label {
+  top: -8px;
+  left: 12px;
+  font-size: .75rem;
+  color: var(--clr-accent);
+}
+
+/* Accent underline that grows from left when focused */
+.form-focus {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--clr-accent);
+  transition: width .4s ease;
+}
+
+.form-group input:focus ~ .form-focus,
+.form-group textarea:focus ~ .form-focus { width: 100%; }
+
+/* ═════════════════════════════════════════════════════════════════════════
+   21. FOOTER  (same on all 10 pages)
+   ─────────────────────────────────────────────────────────────────────────
+   Three sections: brand on left, links in center, copyright on bottom row.
+   💡 TIP: Edit the footer-content in any HTML file to change links/text.
+   ═════════════════════════════════════════════════════════════════════════ */
+
+.footer {
+  background: var(--clr-bg-alt);
+  padding: 48px 24px 32px;
+  border-top: 1px solid rgba(58, 63, 71, .15);
+  position: relative;
+}
+
+/* Thin accent line at the top of the footer */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--clr-accent), transparent);
+}
+
+.footer-content {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-brand p { font-size: .875rem; color: var(--clr-text-dim); margin-top: 4px; }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: .875rem; color: var(--clr-text-dim); transition: color .3s; }
+.footer-links a:hover { color: var(--clr-accent); }
+
+/* Copyright row at bottom */
+.footer-copy {
+  width: 100%;
+  text-align: center;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(58, 63, 71, .1);
+}
+
+.footer-copy p { font-size: .8125rem; color: var(--clr-text-dim); }
+
+/* ═════════════════════════════════════════════════════════════════════════
+   22. KEYFRAME ANIMATIONS  (all @keyframes in one place)
+   ─────────────────────────────────────────────────────────────────────────
+   💡 TIP: Adjust timing (seconds) or transform values to change effects.
+   ═════════════════════════════════════════════════════════════════════════ */
+
+/* Fades in the whole page wrapper */
+@keyframes pageFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* Floating motion for background orbs — slow drift + scale */
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(40px, -50px) scale(1.05); }
+  66%      { transform: translate(-30px, 30px) scale(.95); }
+}
+
+/* Grid pattern slowly drifts diagonally */
+@keyframes gridDrift {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(48px, 48px); }
+}
+
+/* Code symbols float up/down with subtle rotation */
+@keyframes glyphFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: .12; }
+  25%      { transform: translateY(-20px) rotate(5deg); opacity: .18; }
+  75%      { transform: translateY(10px) rotate(-3deg); opacity: .08; }
+}
+
+/* Generic fade-in + slide-up used for entrance animations */
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Typing effect: text types out to full width
+   💡 TIP: "34ch" matches "Software Engineer → Cybersecurity" (34 chars).
+          If you change the hero-sub text in index.html, count the new
+          characters and update the number here to match. */
+@keyframes heroType { to { width: 34ch; } }
+
+/* Blinking cursor after typing finishes */
+@keyframes heroBlink {
+  0%, 100% { border-color: var(--clr-accent); }
+  50%      { border-color: transparent; }
+}
+
+/* Bouncing dot in the scroll indicator */
+@keyframes scrollDot {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50%      { transform: translateY(6px); opacity: .3; }
+}
+
+/* Pulsing effect on the logo dot */
+@keyframes logoPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: .5; transform: scale(.7); }
+}
+
+/* Noise texture shifting (creates the grainy movement) */
+@keyframes noiseShift {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-4px, 2px); }
+  50%  { transform: translate(2px, -4px); }
+  75%  { transform: translate(-2px, 4px); }
+}
+
+/* Skill bars fill from 0 to their target width */
+@keyframes barFill { from { width: 0; } }
+
+/* Timeline line grows from top to bottom */
+@keyframes lineGrow {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+/* Cycles through terminal commands (fade in/out) */
+@keyframes termCycle {
+  0%, 20%  { opacity: 1; }
+  25%, 95% { opacity: 0; }
+  100%     { opacity: 1; }
+}
+
+/* Scale-in effect (entrance) */
+@keyframes fadeScaleIn {
+  from { opacity: 0; transform: scale(.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ═════════════════════════════════════════════════════════════════════════
+   23. REDUCED MOTION  (accessibility for users who prefer no animations)
+   ─────────────────────────────────────────────────────────────────────────
+   💡 TIP: This is triggered automatically when a user's OS accessibility
+          settings have "reduce motion" enabled. It disables all animations.
+          You don't need to change anything here.
+   ═════════════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  /* Kill all animations and transitions instantly */
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  .noise-overlay { display: none; }           /* Grain effect can cause discomfort */
+  .hero-sub      { width: auto; border: none; animation: none; }  /* Show full text immediately */
+  .hero-grid     { animation: none; }                              /* Stop grid drifting */
+  .glyph         { animation: none; }                              /* Stop symbol floating */
+  .skill-bar-fill { width: var(--fill); }                          /* Show bars immediately */
+
+  /* Remove hover transforms (lifts, zooms, etc.) */
+  .project-card:hover,
+  .service-card:hover,
+  .gallery-card:hover,
+  .stat-card:hover,
+  .book-card:hover .book-spine { transform: none; }
+}
+
+/* ═════════════════════════════════════════════════════════════════════════
+   24. RESPONSIVE BREAKPOINTS  (make the site look good on all screen sizes)
+   ─────────────────────────────────────────────────────────────────────────
+   💡 TIP: Breakpoints are:
+          • 1023px and below = tablet adjustments
+          • 768px and below  = mobile adjustments (hamburger menu appears)
+          • 480px and below  = small phone adjustments
+   ═════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Tablet (1023px and below) ─── */
+@media (max-width: 1023px) {
+  .hero-content       { grid-template-columns: 1fr; gap: 2rem; }  /* Stack hero columns */
+  .hero-visual        { display: none; }     /* Hide terminal on tablet */
+  .hero-text          { max-width: 100%; }
+  .services-grid      { grid-template-columns: repeat(2, 1fr); }  /* 2-col instead of 4 */
+  .gallery-grid       { grid-template-columns: repeat(2, 1fr); }  /* 2-col instead of 3 */
+  .books-grid         { grid-template-columns: repeat(3, 1fr); }  /* 3-col instead of 6 */
+  .contact-container  { grid-template-columns: 1fr; gap: 2.5rem; }
+  .skills-cols        { grid-template-columns: repeat(2, 1fr); }
+  .skill-bar-group    { grid-template-columns: 1fr; }             /* Stack progress bars */
+}
+
+/* ─── Tablet / mid-range (1024px and below) ─── */
+@media (max-width: 1024px) {
+  .nav-link { font-size: .8rem; }
+  .nav-links { gap: 1rem; }
+}
+
+/* ─── Mobile (768px and below) ─── */
+@media (max-width: 768px) {
+  /* Show hamburger menu button */
+  .hamburger { display: flex; }
+
+  /* Mobile nav panel — slides in from the right */
+  .nav-links {
+    position: fixed;
+    top: 0; right: -100%;           /* Hidden off-screen by default */
+    width: 75%;
+    max-width: 320px;
+    height: 100dvh;
+    flex-direction: column;
+    background: rgba(15, 20, 25, .97);
+    backdrop-filter: blur(20px);
+    padding: 80px 32px 32px;
+    gap: 1.5rem;
+    transition: right .45s cubic-bezier(.25, .46, .45, .94);
+    z-index: 999;
+  }
+
+  /* Stack layouts from multi-column to single-column */
+  .about-container    { grid-template-columns: 1fr; gap: 2rem; }
+  .about-stats        { grid-template-columns: 1fr 1fr; }
+  .skills-cols        { grid-template-columns: 1fr; }
+  .projects-grid      { grid-template-columns: 1fr; }
+  .services-grid      { grid-template-columns: 1fr; }
+  .gallery-grid       { grid-template-columns: 1fr; }
+  .books-grid         { grid-template-columns: repeat(2, 1fr); }
+  .showcase-grid      { grid-template-columns: 1fr; gap: 2rem; }
+
+  /* Timeline adjustments */
+  .edu-track, .exp-track  { padding-left: 1.5rem; }
+  .edu-item, .exp-item    { padding-left: 1.5rem; }
+  .edu-dot, .exp-dot      { left: -1.5rem; width: 12px; height: 12px; }
+
+  /* Hero buttons stack vertically */
+  .hero-actions       { flex-direction: column; }
+  .hero-actions .btn  { width: 100%; justify-content: center; }
+
+  /* Footer becomes centered */
+  .footer-content     { flex-direction: column; text-align: center; }
+
+  /* Resume */
+  .resume-card        { padding: 24px; }
+  .resume-grid        { grid-template-columns: 1fr; }
+}
+
+/* ─── Small phones (480px and below) ─── */
+@media (max-width: 480px) {
+  .about-stats { grid-template-columns: 1fr 1fr; gap: .75rem; }
+  .stat-card   { padding: 16px 12px; }
+  .stat-num    { font-size: 2rem; }
+  .books-grid  { grid-template-columns: repeat(2, 1fr); }
+  .education-page .section-header h2 { font-size: 1.8rem; }
+}
+
+
+/* ═════════════════════════════════════════════════════════════════════════
+   25. ENTRANCE ANIMATIONS FOR CARDS  (staggered fade-in)
+   ─────────────────────────────────────────────────────────────────────────
+   💡 TIP: Add class="entrance entrance-1" (through entrance-6) to any
+          element to make it fade in with a staggered delay on page load.
+          Higher number = longer delay.
+   ═════════════════════════════════════════════════════════════════════════ */
+
+.entrance { opacity: 0; animation: fadeSlideIn .6s ease forwards; }
+.entrance-1 { animation-delay: .1s; }
+.entrance-2 { animation-delay: .2s; }
+.entrance-3 { animation-delay: .3s; }
+.entrance-4 { animation-delay: .4s; }
+.entrance-5 { animation-delay: .5s; }
+.entrance-6 { animation-delay: .6s; }

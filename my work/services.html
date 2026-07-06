@@ -1,0 +1,135 @@
+<!-- ═════════════════════════════════════════════════════════════════════════
+  FATIMA PORTFOLIO — SERVICES PAGE (services.html)
+  ─────────────────────────────────────────────────────────────────────────
+  A 4-column grid of service cards. Each card has an icon, title, and
+  description of what you offer.
+  ═════════════════════════════════════════════════════════════════════════ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fatima — Services</title>
+  <meta name="description" content="Services offered by Fatima — web development and cybersecurity consulting.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="noise-overlay"></div>
+  <div class="page-wrap">
+
+    <!-- ═══════════ NAVBAR ═══════════ -->
+    <nav class="navbar">
+      <div class="navbar-content">
+        <a href="index.html" class="logo">
+          <span class="logo-text">Fatima Ibrahim Abdullahi</span>
+          <span class="logo-dot"></span>
+        </a>
+        <input type="checkbox" id="menuToggle" class="menu-toggle">
+        <label for="menuToggle" class="hamburger" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </label>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="skills.html" class="nav-link">Skills</a></li>
+          <li><a href="education.html" class="nav-link">Education</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="services.html" class="nav-link active">Services</a></li>
+          <li><a href="gallery.html" class="nav-link">Certifications</a></li>
+          <li><a href="resume.html" class="nav-link">Resume</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <label for="menuToggle" class="nav-overlay"></label>
+      </div>
+    </nav>
+
+    <!-- ═══════════ PAGE HERO ═══════════ -->
+    <section class="page-hero">
+      <div class="page-hero-bg">
+        <div class="hero-orb orb-1" style="width:400px;height:400px;top:-30%;right:-10%"></div>
+        <div class="hero-orb orb-2" style="width:300px;height:300px;bottom:-20%;left:-5%"></div>
+      </div>
+      <div class="page-hero-content">
+        <span class="section-label">What I Offer</span>
+        <h1>Services</h1>
+        <p>How I can help you build secure, modern digital experiences.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════ SERVICES GRID ═══════════ -->
+    <section class="services-page">
+      <div class="services-container">
+
+        <div class="services-grid">
+
+          <!-- Service 1 -->
+          <div class="service-card entrance entrance-1">
+            <div class="service-icon">
+              <svg viewBox="0 0 40 40" fill="none"><rect x="4" y="4" width="32" height="32" rx="3" stroke="currentColor" stroke-width="2"/><path d="M14 16l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 24h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Web Development</h3>
+            <p>Semantic HTML, modern CSS, and responsive design that works across all devices and browsers.</p>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="service-card entrance entrance-2">
+            <div class="service-icon">
+              <svg viewBox="0 0 40 40" fill="none"><path d="M20 4l16 8v16l-16 8-16-8V12l16-8z" stroke="currentColor" stroke-width="2"/><circle cx="20" cy="20" r="4" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>Cybersecurity Consulting</h3>
+            <p>Basic security audits, threat analysis, and recommendations for securing web applications and systems.</p>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="service-card entrance entrance-3">
+            <div class="service-icon">
+              <svg viewBox="0 0 40 40" fill="none"><rect x="4" y="8" width="12" height="24" rx="2" stroke="currentColor" stroke-width="2"/><rect x="24" y="4" width="12" height="32" rx="2" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>Frontend Design</h3>
+            <p>Clean, accessible, and performant user interfaces built with a focus on user experience and design systems.</p>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="service-card entrance entrance-4">
+            <div class="service-icon">
+              <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="2"/><path d="M20 12v8l6 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Digital marketing</h3>
+            <p>Content creation, campaign planning, and social media management</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Fatima Ibrahim Abdullahi<span class="logo-dot"></span></a>
+          <p>Building knowledge today for a safer digital tomorrow</p>
+        </div>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="skills.html">Skills</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-copy">
+          <p>&copy; 2024–2026 Fatima Ibrahim. Built with intentionality.</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

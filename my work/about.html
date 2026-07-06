@@ -1,0 +1,160 @@
+<!-- ═════════════════════════════════════════════════════════════════════════
+  FATIMA PORTFOLIO — ABOUT PAGE (about.html)
+  ─────────────────────────────────────────────────────────────────────────
+  This page contains:
+  • Bio text about yourself (left column)
+  • Statistics cards (right column)
+  • A philosophy/quote section with diagonal clip-path edges
+  • A bookshelf / reading log
+  ═════════════════════════════════════════════════════════════════════════ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fatima Ibrahim Abdullahi— About Me</title>
+  <meta name="description" content="About Fatima — software engineer transitioning into cybersecurity.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="noise-overlay"></div>
+  <div class="page-wrap">
+
+    <!-- ═══════════ NAVBAR (same on all pages) ════════ -->
+    <nav class="navbar">
+      <div class="navbar-content">
+        <a href="index.html" class="logo">
+          <span class="logo-text">Fatima Ibrahim Abdullahi</span>
+          <span class="logo-dot"></span>
+        </a>
+        <input type="checkbox" id="menuToggle" class="menu-toggle">
+        <label for="menuToggle" class="hamburger" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </label>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link active">About</a></li>
+          <li><a href="skills.html" class="nav-link">Skills</a></li>
+          <li><a href="education.html" class="nav-link">Education</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="gallery.html" class="nav-link">Certifications</a></li>
+          <li><a href="resume.html" class="nav-link">Resume</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <label for="menuToggle" class="nav-overlay"></label>
+      </div>
+    </nav>
+
+    <!-- ═══════════ PAGE HERO (top banner) ═══════════ -->
+    <section class="page-hero">
+      <div class="page-hero-bg">
+        <div class="hero-orb orb-1" style="width:400px;height:400px;top:-30%;right:-10%"></div>
+        <div class="hero-orb orb-2" style="width:300px;height:300px;bottom:-20%;left:-5%"></div>
+      </div>
+      <div class="page-hero-content">
+        <span class="section-label">About Me</span>
+        <h1>WHO I AM</h1>
+  <p>I am currently studying Software Engineering at Northwest University Kano. Alongside my academic journey, I am building practical
+ skills in cybersecurity and digital marketing through online courses and internship experiences. I believe learning never stops, and every new challenge is an opportunity to grow.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════ ABOUT CONTENT (bio + stats) ════════ -->
+    <section class="about-page">
+      <div class="about-container">
+
+        <!-- LEFT COLUMN: Biography text -->
+        <div class="about-left">
+          <div class="about-text">
+          <p>Welcome to my digital space</p>
+    <p>I'm Fatima Ibrahim Abdullahi, currently pursuing a Bachelor's degree in Software Engineering at Northwest University Kano.
+      My journey into technology didn't begin with knowing exactly what I wanted to become — it started with curiosity.</p>
+
+      <p>As I studied Software Engineering, I discovered that technology is more than writing code. It's about solving problems
+          and creating solutions that address real-world challenges.</p>
+
+      <p>As I continued learning, I developed a strong passion for cybersecurity because it combines analytical thinking, problem solving
+and continuous learning. I enjoy understanding how systems work, identifying risks, and learning how digital environments can be made more secure.</p>
+
+    <p>Alongside cybersecurity, I also developed an interest in digital marketing where I gained practical experience in creating content,
+      email marketing, and learning how technology and communication work together to help businesses reach the right audience.</p>
+
+    <p>Every course I take, every project I complete, and every challenge I face teaches me something new and brings me one step closer to
+       my goal of becoming a cybersecurity professional who helps build a safer digital world.</p>
+
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Statistics cards -->
+        <div class="about-right">
+          <div class="about-stats">
+            <div class="stat-card">
+              <span class="stat-num">3+</span>
+              <span class="stat-label">Projects<br>Completed</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">2+</span>
+              <span class="stat-label">Years<br>in Tech</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">10+</span>
+              <span class="stat-label">Books<br>Read</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">1</span>
+              <span class="stat-label">Career<br>Pivot</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════ QUOTE SECTION ═══════════ -->
+    <section class="philosophy">
+      <div class="philosophy-bg">
+        <div class="philosophy-shape shape-1"></div>
+        <div class="philosophy-shape shape-2"></div>
+      </div>
+      <div class="philosophy-content">
+        <blockquote>
+          <span class="quote-mark" aria-hidden="true">" "</span>
+          <p class="quote-text">"Every journey begins with a single step. Mine began with curiosity."</p>
+          <cite class="quote-attribution">— Fatima Ibrahim Abdullahi</cite>
+        </blockquote>
+      </div>
+    </section>
+
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Fatima Ibrahim Abdullahi<span class="logo-dot"></span></a>
+          <p>Building knowledge today for a safer digital tomorrow.</p>
+        </div>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="skills.html">Skills</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-copy">
+          <p>&copy; 2024–2026 Fatima Ibrahim. Built with intentionality.</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

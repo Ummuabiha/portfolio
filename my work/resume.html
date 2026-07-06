@@ -1,0 +1,224 @@
+<!-- ═════════════════════════════════════════════════════════════════════════
+  FATIMA PORTFOLIO — RESUME PAGE (resume.html)
+  ─────────────────────────────────────────────────────────────────────────
+  A professional CV/resume card layout. Sections include:
+  • Header with name + title
+  • Education
+  • Skills (tag grid)
+  • Experience
+  • Languages
+  • Interests
+  • Download button
+  ═════════════════════════════════════════════════════════════════════════ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fatima — Resume</title>
+  <meta name="description" content="Resume of Fatima — software engineer and cybersecurity enthusiast.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="noise-overlay"></div>
+  <div class="page-wrap">
+
+    <!-- ═══════════ NAVBAR ═══════════ -->
+    <nav class="navbar">
+      <div class="navbar-content">
+        <a href="index.html" class="logo">
+          <span class="logo-text">Fatima Ibrahim Abdullahi</span>
+          <span class="logo-dot"></span>
+        </a>
+        <input type="checkbox" id="menuToggle" class="menu-toggle">
+        <label for="menuToggle" class="hamburger" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </label>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="skills.html" class="nav-link">Skills</a></li>
+          <li><a href="education.html" class="nav-link">Education</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="gallery.html" class="nav-link">Certifications</a></li>
+          <li><a href="resume.html" class="nav-link active">Resume</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <label for="menuToggle" class="nav-overlay"></label>
+      </div>
+    </nav>
+
+    <!-- ═══════════ PAGE HERO ═══════════ -->
+    <section class="page-hero">
+      <div class="page-hero-bg">
+        <div class="hero-orb orb-1" style="width:400px;height:400px;top:-30%;right:-10%"></div>
+        <div class="hero-orb orb-2" style="width:300px;height:300px;bottom:-20%;left:-5%"></div>
+      </div>
+      <div class="page-hero-content">
+        <span class="section-label">Curriculum Vitae</span>
+        <h1>Resume</h1>
+        <p>My professional profile, skills, and experience at a glance.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════ RESUME CARD ═════════ -->
+    <section class="resume-page">
+      <div class="resume-container">
+
+        <div class="resume-card entrance entrance-1">
+
+          <!-- ─── Resume Header ─── -->
+          <div class="resume-header">
+            <h1>Fatima Ibrahim Abdullahi</h1>
+            <p class="resume-title">Software Engineer → Cybersecurity</p>
+            <p>Building secure systems, one project at a time.</p>
+          </div>
+
+          <!-- ─── Education Section ─── -->
+          <div class="resume-section">
+            <h2>Education</h2>
+            <div class="resume-item">
+              <h3>Software Engineering</h3>
+              <div class="resume-meta">Northwest University | 2025 – Present</div>
+              <p>Focus on software development, web technologies, and cybersecurity fundamentals.</p>
+            </div>
+            <div class="resume-item">
+              <h3>Cybersecurity Path</h3>
+              <div class="resume-meta">Cyber Security Track | 2025 – Present</div>
+              <p>Network security, cryptography, system hardening, and ethical hacking.</p>
+            </div>
+          </div>
+
+          <!-- ─── Skills Section ─── -->
+          <div class="resume-section">
+            <h2>Skills</h2>
+            <div class="resume-grid">
+              <div>
+                <h3>Frontend</h3>
+                <div>
+                  <span class="resume-tag">HTML5</span>
+                  <span class="resume-tag">CSS3</span>
+                  <span class="resume-tag">JavaScript</span>
+                  <span class="resume-tag">Responsive Design</span>
+                </div>
+              </div>
+              <div>
+                <h3>Cybersecurity</h3>
+                <div>
+                  <span class="resume-tag">Networking</span>
+                  <span class="resume-tag">Python</span>
+                  <span class="resume-tag">Defensive security</span>
+                  <span class="resume-tag">Cryptography</span>
+                </div>
+              </div>
+              <div>
+                <h3>Tools</h3>
+                <div>
+                  <span class="resume-tag">VS Code</span>
+                  <span class="resume-tag">Git</span>
+                  <span class="resume-tag">Wireshark</span>
+                  <span class="resume-tag">Kali</span>
+                </div>
+              </div>
+              <div>
+                <h3>Mindset</h3>
+                <div>
+                  <span class="resume-tag">Problem-Solving</span>
+                  <span class="resume-tag">Documentation</span>
+                  <span class="resume-tag">Self-Learning</span>
+                  <span class="resume-tag">Time Management</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── Experience Section ─── -->
+          <div class="resume-section">
+            <h2>Experience</h2>
+            <div class="resume-item">
+              <h3>Portfolio Website</h3>
+              <div class="resume-meta">Personal Project | 2026</div>
+              <p>Built a 10-page responsive portfolio using only HTML and CSS. Semantic markup, modern CSS architecture, and CSS-only interactions.</p>
+            </div>
+            <div class="resume-item">
+              <h3>Cybersecurity Lab</h3>
+              <div class="resume-meta">Personal Project | 2025</div>
+              <p>Network security exploration, and vulnerability assessments using Kali Linux and Wireshark.</p>
+            </div>
+            <div class="resume-item">
+              <h3>Digital Marketing</h3>
+              <div class="resume-meta">Personal Project | 2026</div>
+              <p>create social media content, educational posts and campaign planning</p>
+            </div>
+          </div>
+
+          <!-- ─── Languages Section ─── -->
+          <div class="resume-section">
+            <h2>Languages</h2>
+            <div class="resume-grid">
+              <div>
+                <h3>Hausa</h3>
+                <p>Native</p>
+              </div>
+              <div>
+                <h3>English</h3>
+                <p>Professional Proficiency</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── Interests Section ─── -->
+          <div class="resume-section">
+            <h2>Interests</h2>
+            <div>
+              <span class="resume-tag">Pyschology</span>
+              <span class="resume-tag">Reading</span>
+              <span class="resume-tag">Cybersecurity</span>
+              <span class="resume-tag">Artificial Intelligence</span>
+              <span class="resume-tag">digital marketing</span>
+              <span class="resume-tag">Self-Discovery</span>
+            </div>
+          </div>
+
+          <!-- ─── Download Button ─── -->          
+           <div class="resume-download">
+            <a href="#" class="btn btn-primary">Download CV (PDF)</a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Fatima Ibrahim Abdullahi<span class="logo-dot"></span></a>
+          <p>Building knowledge today for a safer digital tomorrow</p>
+        </div>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="skills.html">Skills</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-copy">
+          <p>&copy; 2024–2026 Fatima Ibrahim. Built with intentionality.</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

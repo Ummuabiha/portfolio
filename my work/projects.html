@@ -1,0 +1,235 @@
+<!-- ═════════════════════════════════════════════════════════════════════════
+  FATIMA PORTFOLIO — PROJECTS PAGE (projects.html)
+  ─────────────────────────────────────────────────────────────────────────
+  Two parts:
+  1. Featured Showcase (dark bg) — one highlighted project
+  2. Project Cards Grid (light bg) — all projects in a 2-column grid
+  ═════════════════════════════════════════════════════════════════════════ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fatima — Projects</title>
+  <meta name="description" content="Projects by Fatima — software engineer and cybersecurity enthusiast.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="noise-overlay"></div>
+  <div class="page-wrap">
+
+    <!-- ═══════════ NAVBAR ═══════════ -->
+    <nav class="navbar">
+      <div class="navbar-content">
+        <a href="index.html" class="logo">
+          <span class="logo-text">Fatima Ibrahim Abdullahi</span>
+          <span class="logo-dot"></span>
+        </a>
+        <input type="checkbox" id="menuToggle" class="menu-toggle">
+        <label for="menuToggle" class="hamburger" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </label>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="skills.html" class="nav-link">Skills</a></li>
+          <li><a href="education.html" class="nav-link">Education</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="projects.html" class="nav-link active">Projects</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="gallery.html" class="nav-link">Certifications</a></li>
+          <li><a href="resume.html" class="nav-link">Resume</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <label for="menuToggle" class="nav-overlay"></label>
+      </div>
+    </nav>
+
+    <!-- ═══════════ PAGE HERO ═══════════ -->
+    <section class="page-hero">
+      <div class="page-hero-bg">
+        <div class="hero-orb orb-1" style="width:400px;height:400px;top:-30%;right:-10%"></div>
+        <div class="hero-orb orb-2" style="width:300px;height:300px;bottom:-20%;left:-5%"></div>
+      </div>
+      <div class="page-hero-content">
+        <span class="section-label">Portfolio</span>
+        <h1>Projects</h1>
+        <p>A selection of work I've built and contributed to.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════ FEATURED SHOWCASE ═══════════
+         A highlighted project with a larger layout.-->
+    <section class="showcase">
+      <div class="showcase-bg">
+        <div class="showcase-pattern"></div>
+      </div>
+      <div class="showcase-content">
+        <span class="section-label">Featured Work</span>
+        <h2>Portfolio Website</h2>
+        <div class="showcase-grid">
+
+          <div class="showcase-info">
+            <p class="showcase-description">
+              A responsive portfolio built for a university assignment that evolved
+              into a personal brand statement. Semantic HTML, modern CSS architecture,
+              and carefully crafted interactions — all without JavaScript.
+            </p>
+            <div class="showcase-tags">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>Responsive</span>
+              <span>Vercel</span>
+            </div>
+            <div class="showcase-links">
+              <a href="#" class="btn btn-small btn-primary">GitHub Repo</a>
+              <a href="#" class="btn btn-small btn-outline">Live Demo</a>
+            </div>
+          </div>
+
+          <div class="showcase-visual">
+            <div class="showcase-frame">
+              <div class="frame-bar">
+                <span></span><span></span><span></span>
+                <span class="frame-url">fatima.dev</span>
+              </div>
+              <div class="frame-content">
+                <div class="frame-line"></div>
+                <div class="frame-line"></div>
+                <div class="frame-line short"></div>
+                <div class="frame-line accent"></div>
+                <div class="frame-line"></div>
+                <div class="frame-line short"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ ALL PROJECTS GRID ═══════════
+         Each .project-card = one project. -->
+    <section class="projects-page">
+      <div class="projects-container">
+
+        <div class="section-header" style="text-align:left;margin-bottom:2rem">
+          <span class="section-label">All Projects</span>
+          <h2 style="color:var(--clr-dark-text)">More Work</h2>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- Project 1 -->
+          <article class="project-card entrance entrance-1">
+            <div class="project-thumb">
+              <div class="project-thumb-bg" style="background:linear-gradient(135deg,#0F1419,#1a3a5c)">
+                <span class="project-icon"><img src="img/PF.png" alt=""></span>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>Portfolio Website</h3>
+              <p>A responsive website built using HTML and CSS to showcase my journey, skills and projects.</p>
+              <div class="project-tech">
+                <span>HTML5</span><span>CSS3</span><span>Responsive</span>
+              </div>
+              <div class="project-foot">
+                <a href="#" class="project-link">GitHub</a>
+                <a href="#" class="project-link">Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card entrance entrance-2">
+            <div class="project-thumb">
+              <div class="project-thumb-bg" style="background:linear-gradient(135deg,#0a1628,#2d1b4e)">
+                <span class="project-icon"><img src="" alt=""><img src="img/TMH2.webp" alt=""></span>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>Cybersecurity Labs</h3>
+              <p>A collection of practical labs and exercises exploring OSINT investigations, defensive security 
+                documenting my progress in cybersecurity</p>
+              <div class="project-tech">
+                <span>SIEM Tools</span><span>Wireshark</span><span>Kali</span>
+              </div>
+              <div class="project-foot">
+                <a href="#" class="project-link">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card entrance entrance-3">
+            <div class="project-thumb">
+              <div class="project-thumb-bg" style="background:linear-gradient(135deg,#0F1419,#1a3a2c)">
+                <span class="project-icon"><img src="img/PW.png" alt=""></span>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>Painting Website</h3>
+            <p>Developed a website for a painting company using HTLM and CSS</p>
+              <div class="project-tech">
+                <span>HTML</span><span>CSS</span><span>BootStrap</span>
+              </div>
+              <div class="project-foot">
+                <a href="#" class="project-link">GitHub</a>
+                 <a href="#" class="project-link">Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="project-card entrance entrance-4">
+            <div class="project-thumb">
+              <div class="project-thumb-bg" style="background:linear-gradient(135deg,#1a1a2e,#16213e)">
+                <span class="project-icon"><img src="img/DM.jpg" alt=""></span>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>Diagital Marketing Projects</h3>
+              <p>Content strategies, educational posts and campaign planning completed during internship experience.</p>
+              <div class="project-tech">
+                <span>Content creation</span><span>graphic posts</span><span>Campaign planning</span>
+              </div>
+              <div class="project-foot">
+                <a href="#" class="project-link">Demo</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Fatima Ibrahim Abdullahi<span class="logo-dot"></span></a>
+          <p>Building knowledge today for a safer digital tomorrow</p>
+        </div>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="skills.html">Skills</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-copy">
+          <p>&copy; 2024–2026 Fatima Ibrahim. Built with intentionality.</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

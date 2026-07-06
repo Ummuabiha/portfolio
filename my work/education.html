@@ -1,0 +1,168 @@
+<!-- ═════════════════════════════════════════════════════════════════════════
+  FATIMA PORTFOLIO — EDUCATION PAGE (education.html)
+  ─────────────────────────────────────────────────────────────────────────
+  This page shows your academic journey as a vertical timeline.
+  ═════════════════════════════════════════════════════════════════════════ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fatima Ibrahim Abdullahi — Education</title>
+  <meta name="description" content="Education journey of Fatima — software engineering and cybersecurity.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="noise-overlay"></div>
+  <div class="page-wrap">
+
+    <!-- ═══════════ NAVBAR ═══════════ -->
+    <nav class="navbar">
+      <div class="navbar-content">
+        <a href="index.html" class="logo">
+          <span class="logo-text">Fatima Ibrahim Abdullahi</span>
+          <span class="logo-dot"></span>
+        </a>
+        <input type="checkbox" id="menuToggle" class="menu-toggle">
+        <label for="menuToggle" class="hamburger" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </label>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="skills.html" class="nav-link">Skills</a></li>
+          <li><a href="education.html" class="nav-link active">Education</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="gallery.html" class="nav-link">Certifications</a></li>
+          <li><a href="resume.html" class="nav-link">Resume</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <label for="menuToggle" class="nav-overlay"></label>
+      </div>
+    </nav>
+
+    <!-- ═══════════ PAGE HERO ═══════════ -->
+    <section class="page-hero">
+      <div class="page-hero-bg">
+        <div class="hero-orb orb-1" style="width:400px;height:400px;top:-30%;right:-10%"></div>
+        <div class="hero-orb orb-2" style="width:300px;height:300px;bottom:-20%;left:-5%"></div>
+      </div>
+      <div class="page-hero-content">
+        <span class="section-label">Academic Path</span>
+        <h1>Education</h1>
+        <p>My learning journey in software engineering and cybersecurity.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════ EDUCATION TIMELINE ═══════════
+         Each .edu-item block = one entry on the timeline. -->
+    <section class="education-page">
+      <div class="edu-container">
+
+        <div class="section-header">
+          <span class="section-label">Timeline</span>
+          <h2>Educational Journey</h2>
+        </div>
+
+        <div class="edu-track">
+
+          <!-- The animated vertical line (draws itself on load) -->
+          <div class="edu-line"></div>
+
+          <!-- Entry 1 -->
+          <div class="edu-item">
+            <div class="edu-dot"></div>
+            <div class="edu-card">
+              <span class="edu-year">2025</span>
+              <h3>Software Engineering</h3>
+              <span class="edu-meta">Northwest University</span>
+              <p>Began formal training in software engineering — learning programming fundamentals, 
+                data structures, and the software development lifecycle.</p>
+            </div>
+          </div>
+
+          <!-- Entry 2 -->
+          <div class="edu-item">
+            <div class="edu-dot"></div>
+            <div class="edu-card">
+              <span class="edu-year">2026</span>
+              <h3>Responsive Web Design</h3>
+              <span class="edu-meta">freeCodeCamp</span>
+              <p>Earned certification in responsive web design — covering flexbox, CSS grid, 
+                accessibility, and mobile-first development principles.</p>
+            </div>
+          </div>
+
+           <!-- Entry 3 -->
+          <div class="edu-item">
+            <div class="edu-dot"></div>
+            <div class="edu-card">
+              <span class="edu-year">2026</span>
+              <h3>Digital Marketing</h3>
+              <span class="edu-meta">Coursera</span>
+              <p>Earned certificate in digital marketing — covering social media marketing, 
+                SEO and SEM Fundamentals, Email marketing and Brand communication.</p>
+            </div>
+          </div>
+
+          <!-- Entry 4 -->
+          <div class="edu-item">
+            <div class="edu-dot"></div>
+            <div class="edu-card">
+              <span class="edu-year">2025 - Till date</span>
+              <h3>Cybersecurity Fundamentals</h3>
+              <span class="edu-meta">Coursera and Udemy</span>
+              <p>Currently enrolled in Google cybersecurity professional certificate course in 
+                Coursera and Udemy covering networking basics, SQL, SIEM, and ethical hacking fundamentals.</p>
+            </div>
+          </div>
+
+           <!-- Entry 5 -->
+          <div class="edu-item">
+            <div class="edu-dot"></div>
+            <div class="edu-card">
+              <span class="edu-year">2026 - Till date</span>
+              <h3>Learning Beyound the classroom</h3>
+              <span class="edu-meta">Coursera, Udemy, IBMSkillsbuild, Cisco networking academy</span>
+              <p>I believe learing does'nt stop after lectures, to expand my knowledge, i actively participate 
+                in online courses, professional trainings and internships</p>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Fatima Ibrahim Abdullahi<span class="logo-dot"></span></a>
+          <p>Building knowledge today for a safer digital tomorrow</p>
+        </div>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="skills.html">Skills</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-copy">
+          <p>&copy; 2024–2026 Fatima Ibrahim. Built with intentionality.</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
